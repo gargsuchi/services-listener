@@ -168,7 +168,27 @@ class Post extends ContentEntityBase implements PostInterface
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['langcode'] = BaseFieldDefinition::create('language')
+      $fields['body'] = BaseFieldDefinition::create('string_long')
+          ->setLabel(t('Body'))
+          ->setRequired(TRUE)
+          ->setDisplayOptions('form', array(
+              'type' => 'string_textarea',
+              'weight' => 0,
+              'settings' => array(
+                  'rows' => 12,
+              ),
+          ))
+          ->setDisplayConfigurable('form', TRUE)
+          ->setDisplayOptions('view', array(
+              'type' => 'string',
+              'weight' => 0,
+              'label' => 'above',
+          ))
+          ->setDisplayConfigurable('view', TRUE);
+
+
+
+      $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of Post entity.'));
 

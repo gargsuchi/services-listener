@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_search_logic
+field_name: field_search_logic
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: OR
+      label: 'ANY keyword may be present (OR)'
+    -
+      value: AND
+      label: 'ALL keywords must be present (AND)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false

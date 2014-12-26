@@ -1,0 +1,14 @@
+name: 'Configuration Packager'
+type: module
+description: 'Enables administrators to package configuration into modules.'
+package: Configuration
+# core: 8.x
+configure: config_packager.export
+dependencies:
+  - config
+
+# Information added by Drupal.org packaging script on 2014-12-21
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'config_packager'
+datestamp: 1419187685
