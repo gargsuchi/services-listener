@@ -1,0 +1,8 @@
+listner.default_controller_hello:
+  path: 'listner/hello/{name}'
+  defaults:
+    _controller: '\Drupal\listner\Controller\DefaultController::hello'
+    _title: 'listner Title'
+  requirements:
+    _permission: 'access content'
+

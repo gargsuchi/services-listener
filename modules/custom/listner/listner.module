@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains listner.module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+
+function listner_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    // Main module help for the listner module.
+    case 'help.page.listner':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Social Media Listener') . '</p>';
+      return $output;
+    break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+
+function listner_theme()
+{
+  $theme = [];
+
+  return $theme;
+}
