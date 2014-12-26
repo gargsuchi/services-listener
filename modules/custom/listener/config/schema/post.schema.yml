@@ -1,0 +1,33 @@
+listener.post.*:
+  type: config_entity
+  label: 'Post'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    listener_service_id:
+      type: string
+      label: 'Service ID'
+    service_result_entity_id:
+      type: string
+      label: 'Service Result Entity Id'
+    user_name:
+      type: string
+      label: 'User name'
+    user_profile_img_url: # Could be changed to a file entity reference
+      type: string
+      label: 'User Profile URL'
+    body:
+      type: text
+      label: "Body"
+    date:
+      type: date_format
+      label: "Date"
+    url:
+      type: string
+      label: "Link"
+    score:
+      type: integer
+      label: "Score"
+    uuid:
+      type: string

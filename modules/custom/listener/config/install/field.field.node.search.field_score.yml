@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_score
+    - node.type.search
+id: node.search.field_score
+field_name: field_score
+entity_type: node
+bundle: search
+label: Score
+description: 'Assign a value to results which contain this term (defaults to 1).'
+required: true
+translatable: false
+default_value:
+  -
+    value: !!float 1
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+third_party_settings: {  }
+field_type: float

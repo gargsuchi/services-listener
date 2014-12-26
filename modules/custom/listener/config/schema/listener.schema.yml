@@ -2,7 +2,7 @@
 
 listener.searches.*:
   type: config_entity
-  label: 'Block'
+  label: 'Listener'
   mapping:
     id:
       type: string

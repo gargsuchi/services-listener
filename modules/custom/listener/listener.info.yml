@@ -5,3 +5,7 @@ core: 8.x
 package: Other
 config_devel:
   - node.type.search
+  - field.field.node.search.field_keyword
+  - field.field.node.search.field_score
+  - field.field.node.search.field_search_logic
+
