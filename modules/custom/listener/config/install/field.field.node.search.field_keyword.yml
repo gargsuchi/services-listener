@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keyword
+    - node.type.search
+  module:
+    - options
+id: node.search.field_keyword
+field_name: field_keyword
+entity_type: node
+bundle: search
+label: keyword
+description: 'Woot. Enter in the keywords you want to search for here.  You can use phrases in quotes (e.g. "New Delhi" will only match "New Delhi", not "New" or "Delhi" by themselves).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+third_party_settings: {  }
+field_type: list_string
