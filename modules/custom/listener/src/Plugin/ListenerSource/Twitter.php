@@ -1,24 +1,24 @@
 <?php
 /**
  * @file
- * Contains \Drupal\listener\Plugin\ListenerTarget\Twitter.
+ * Contains \Drupal\listener\Plugin\ListenerSource\Twitter.
  */
 
-namespace Drupal\listener\Plugin\ListenerTarget;
+namespace Drupal\listener\Plugin\ListenerSource;
 
-use Drupal\listener\ListenerTargetBase;
+use Drupal\listener\ListenerSourceBase;
 use Drupal\node\Entity\Node;
 
 /**
  * Provides a 'vanilla' flavor.
  *
- * @ListenerTarget(
+ * @ListenerSource(
  *   id = "twitter",
  *   name = @Translation("Vanilla"),
  *   price = 1.75
  * )
  */
-class Twitter extends ListenerTargetBase {
+class Twitter extends ListenerSourceBase {
 
   /**
    * @param Node $search A search configuration object

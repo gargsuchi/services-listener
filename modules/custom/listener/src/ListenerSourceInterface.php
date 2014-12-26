@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provides Drupal\listener\ListenerTargetInterface
+ * Provides Drupal\listener\ListenerSourceInterface
  */
 
 namespace Drupal\listener;
@@ -11,9 +11,9 @@ use Drupal\node\Plugin\Search\NodeSearch;
 use Drupal\node\Entity\Node;
 
 /**
- * Defines an interface for Listener targets.
+ * Defines an interface for Listener sources.
  */
-interface ListenerTargetInterface extends PluginInspectionInterface {
+interface ListenerSourceInterface extends PluginInspectionInterface {
 
   /**
    * Return the name of the ice cream flavor.

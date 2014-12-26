@@ -88,7 +88,7 @@ class Post extends ContentEntityBase implements PostInterface
    * {@inheritdoc}
    */
   public function getOwnerId() {
-    return $this->get('user_id')->target_id;
+    return $this->get('user_id')->source_id;
   }
 
   /**
@@ -112,6 +112,14 @@ class Post extends ContentEntityBase implements PostInterface
     return $this->get('postText')->value;
   }
 
+  public function getPostScore() {
+    return $this->get('score')->value;
+  }
+
+  public function getSourceName() {
+    $plugin_options = \Drupal::service('plugin.manager.listener_source')->getDefinitionList();
+    return $plugin_options[$this->get('plugin_id')->value];
+  }
 
   /**
    * {@inheritdoc}
@@ -174,6 +182,31 @@ class Post extends ContentEntityBase implements PostInterface
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $plugin_options = \Drupal::service('plugin.manager.listener_source')->getDefinitionList();
+    kpr($plugin_options);
+
+
+    $fields['plugin_id'] = BaseFieldDefinition::create('list_string')
+      ->setLabel(t('Plugin Id'))
+      ->setDescription(t('Source plugin'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 50,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'options_select',
+        'weight' => -4,
+      ))
+      ->setSetting('allowed_values', $plugin_options)
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
       // The text of the contact message.
       $fields['postText'] = BaseFieldDefinition::create('string_long')
           ->setLabel(t('Post Contents'))
@@ -193,11 +226,31 @@ class Post extends ContentEntityBase implements PostInterface
           ))
           ->setDisplayConfigurable('view', TRUE);
 
+    $fields['score'] = BaseFieldDefinition::create('float')
+      ->setLabel(t('Score'))
+      ->setDescription(t('The score of the post entity.'))
+      ->setSettings(array(
+        'default_value' => '',
+        'max_length' => 10,
+        'text_processing' => 0,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'float',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'float',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 
 
 
 
-      $fields['langcode'] = BaseFieldDefinition::create('language')
+
+    $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of Post entity.'));
 

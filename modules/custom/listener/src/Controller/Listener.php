@@ -8,7 +8,7 @@
 namespace Drupal\listener\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\listener\ListenerTargetManager;
+use Drupal\listener\ListenerSourceManager;
 use Drupal\node\Entity\Node;
 
 class Listener extends ControllerBase {
@@ -43,7 +43,7 @@ class Listener extends ControllerBase {
     // @todo: add a queue / batch
 
     $pm = '';
-    $pm = \Drupal::service('plugin.manager.listener_target');
+    $pm = \Drupal::service('plugin.manager.listener_source');
     $definitions = $pm->getDefinitions();
     foreach($definitions as $definition) {
       $plugin = $pm->createInstance($definition['id']);

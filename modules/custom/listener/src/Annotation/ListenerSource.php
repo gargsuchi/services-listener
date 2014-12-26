@@ -11,14 +11,14 @@ use Drupal\Component\Annotation\Plugin;
 /**
  * Defines a flavor item annotation object.
  *
- * Plugin Namespace: Plugin\listener\listenerTarget
+ * Plugin Namespace: Plugin\listener\listenerSource
  *
- * @see \Drupal\listener\Plugin\ListenerTargetManager
+ * @see \Drupal\listener\Plugin\ListenerSourceManager
  * @see plugin_api
  *
  * @Annotation
  */
-class ListenerTarget extends Plugin {
+class ListenerSource extends Plugin {
 
   /**
    * The plugin ID.

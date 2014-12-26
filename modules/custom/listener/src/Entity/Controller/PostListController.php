@@ -25,7 +25,9 @@ class PostListController extends EntityListBuilder
   public function buildHeader() {
     $header['id'] = t('PostID');
     $header['name'] = t('Name');
+    $header['source'] = t('Source');
     $header['postText'] = t('Post Text');
+    $header['score'] = t('Post score');
     return $header + parent::buildHeader();
   }
 
@@ -43,7 +45,9 @@ class PostListController extends EntityListBuilder
         )
       )
     );
+    $row['source'] = $entity->getSourceName();
     $row['postText'] = $entity->getPostText();
+    $row['score'] = $entity->getPostText();
     return $row + parent::buildRow($entity);
   }
 }

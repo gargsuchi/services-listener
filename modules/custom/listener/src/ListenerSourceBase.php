@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provides Drupal\listener\ListenerTargetBase.
+ * Provides Drupal\listener\ListenerSourceBase.
  */
 
 namespace Drupal\listener;
@@ -10,7 +10,7 @@ use Drupal\Component\Plugin\PluginBase;
 use SebastianBergmann\Exporter\Exception;
 use Drupal\node\Entity\Node;
 
-class ListenerTargetBase extends PluginBase implements ListenerTargetInterface {
+class ListenerSourceBase extends PluginBase implements ListenerSourceInterface {
 
   public function getName() {
     return $this->pluginDefinition['name'];
@@ -25,7 +25,7 @@ class ListenerTargetBase extends PluginBase implements ListenerTargetInterface {
   }
 
   public function match(Node $search) {
-    throw new Exception('Match function must be implemented in Listener Target Plugin');
+    throw new Exception('Match function must be implemented in Listener Source Plugin');
     // Must implement in base
   }
 
@@ -33,6 +33,7 @@ class ListenerTargetBase extends PluginBase implements ListenerTargetInterface {
    * @param Node $search A search configuration object
    */
   public function rebuild(Node $search) {
+    return array('ff');
     $results = $this->match($search);
     $posts = $this->map($results);
     $this->deletePosts($search);
