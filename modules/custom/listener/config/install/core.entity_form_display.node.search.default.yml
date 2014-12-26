@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.search.field_keyword
+    - field.field.node.search.field_score
+    - field.field.node.search.field_search_logic
+    - node.type.search
+  module:
+    - entity_reference
+    - path
+id: node.search.default
+targetEntityType: node
+bundle: search
+mode: default
+content:
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_type: tags
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+  field_search_logic:
+    type: options_buttons
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+  field_score:
+    type: number
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_keyword:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden: {  }
+third_party_settings: {  }

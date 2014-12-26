@@ -1,0 +1,4 @@
+services:
+  plugin.manager.listener_target:
+      class: Drupal\listener\ListenerTargetManager
+      parent: default_plugin_manager

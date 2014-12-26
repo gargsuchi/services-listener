@@ -3,3 +3,15 @@ type: module
 description: My Awesome Module
 core: 8.x
 package: Other
+config_devel:
+  - core.entity_form_display.node.search.default
+  - field.field.node.search.field_keyword
+  - field.field.node.search.field_score
+  - field.field.node.search.field_search_logic
+  - field.storage.node.field_search_logic
+  - node.type.search
+  - field.storage.node.field_keyword
+  - field.storage.node.field_score
+  - field.storage.node.field_search_logic
+
+

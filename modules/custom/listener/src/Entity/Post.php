@@ -107,6 +107,12 @@ class Post extends ContentEntityBase implements PostInterface
     return $this;
   }
 
+
+  public function getPostText() {
+    return $this->get('postText')->value;
+  }
+
+
   /**
    * {@inheritdoc}
    */
@@ -168,7 +174,30 @@ class Post extends ContentEntityBase implements PostInterface
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['langcode'] = BaseFieldDefinition::create('language')
+      // The text of the contact message.
+      $fields['postText'] = BaseFieldDefinition::create('string_long')
+          ->setLabel(t('Post Contents'))
+          ->setRequired(TRUE)
+          ->setDisplayOptions('form', array(
+              'type' => 'string_textarea',
+              'weight' => 0,
+              'settings' => array(
+                  'rows' => 12,
+              ),
+          ))
+          ->setDisplayConfigurable('form', TRUE)
+          ->setDisplayOptions('view', array(
+              'type' => 'string',
+              'weight' => 0,
+              'label' => 'above',
+          ))
+          ->setDisplayConfigurable('view', TRUE);
+
+
+
+
+
+      $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of Post entity.'));
 

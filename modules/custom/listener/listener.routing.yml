@@ -47,3 +47,27 @@ post.settings:
   requirements:
     _permission: 'administer Post entity'
 
+listener.listener_index:
+  path: 'listener/index'
+  defaults:
+    _controller: '\Drupal\listener\Controller\Listener::index'
+    _title: 'listener Title'
+  requirements:
+    _permission: 'access content'
+
+listener.listener_rebuild:
+  path: 'listener/rebuild'
+  defaults:
+    _controller: '\Drupal\listener\Controller\Listener::rebuild'
+    _title: 'listener Title'
+  requirements:
+    _permission: 'access content'
+
+listener.listener_rebuild.individual:
+  path: 'listener/rebuild/{search}'
+  defaults:
+    _controller: '\Drupal\listener\Controller\Listener::rebuild'
+    _title: 'listener Title'
+  requirements:
+    _permission: 'access content'
+
