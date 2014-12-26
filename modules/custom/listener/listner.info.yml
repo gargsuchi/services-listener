@@ -1,0 +1,7 @@
+name: listener
+type: module
+description: Social Media Listener
+core: 8.x
+package: Other
+config_devel:
+  - node.type.seach
