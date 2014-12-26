@@ -1,0 +1,7 @@
+entity.post.add_form:
+  route_name: entity.post.add_form
+  title: 'Add Post'
+  appears_on:
+    - entity.post.list
+    - entity.post.canonical
+

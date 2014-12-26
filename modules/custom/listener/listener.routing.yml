@@ -1,0 +1,49 @@
+# Post routing definition
+entity.post.canonical:
+  path: '/admin/post/{post}'
+  defaults:
+    _entity_view: 'post'
+    _title: 'Post Content'
+  requirements:
+    _entity_access: 'post.view'
+
+entity.post.list:
+  path: '/admin/post'
+  defaults:
+    _entity_list: 'post'
+    _title: 'Post List'
+  requirements:
+    _permission: 'view Post entity'
+
+entity.post.add_form:
+  path: '/admin/post/add'
+  defaults:
+    _entity_form: post.add
+    _title: 'Add Post'
+  requirements:
+    _entity_create_access: 'post'
+
+entity.post.edit_form:
+  path: '/admin/post/{post}/edit'
+  defaults:
+    _entity_form: post.edit
+    _title: 'Edit Post'
+  requirements:
+    _entity_access: 'post.edit'
+
+entity.post.delete_form:
+  path: '/admin/post/{post}/delete'
+  defaults:
+    _entity_form: post.delete
+    _title: 'Delete Post'
+  requirements:
+    _entity_access: 'post.delete'
+
+post.settings:
+  path: 'admin/structure/post'
+  defaults:
+   _form: '\Drupal\listener\Entity\Form\PostSettingsForm'
+   _title: 'Post Settings'
+  requirements:
+    _permission: 'administer Post entity'
+
