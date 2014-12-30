@@ -1,0 +1,109 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the twitter_search module.
+ */
+
+
+/**
+ * Implements hook_schema().
+ */
+function twitter_search_schema() {
+  $schema['twitter_search'] = array(
+    'description' => 'Stores Twitter search strings.',
+    'fields' => array(
+      'twitter_search_id' => array(
+        'description' => 'Unique identifier for each {twitter_search} string.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'search' => array(
+        'description' => 'Search string to query Twitter for.',
+        'type' => 'varchar',
+        'length' => 140,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'last_twitter_id' => array(
+        'description' => 'Unique identifier for the latest {twitter} post for this search.',
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 20,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'last_refresh' => array(
+        'description' => 'A UNIX timestamp marking the date Twitter statuses were last fetched on.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('twitter_search_id'),
+  );
+
+  $schema['twitter_search_tweet'] = array(
+    'description' => 'Maps {twitter} posts to specific searches.',
+    'fields' => array(
+      'twitter_search_id' => array(
+        'description' => 'Unique identifier for each {twitter_search} string.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'twitter_id' => array(
+        'description' => "Unique identifier for each {twitter} post.",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 20,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function twitter_search_install() {
+  // Create tables.
+  // Set the weight to 3, making it heavier than Pathauto.
+  // @FIXME
+// db_update('system')
+//     ->fields(array(
+//         'weight' => 3,
+//       ))
+//     ->condition('type', 'module')
+//     ->condition('name', 'twitter_search')
+//     ->execute();
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function twitter_search_uninstall() {
+  // Remove tables.
+  // Delete settings from variable table.
+  // @FIXME
+// db_delete('variable')
+//     ->condition('name', 'twitter_search_%', 'LIKE')
+//     ->execute();
+
+}
+
+/**
+ * Implements hook_update_NNNN().
+ */
+function twitter_search_update_6001() {
+  $ret = array();
+  db_drop_primary_key('twitter_search_statuses');
+  db_rename_table('twitter_search_statuses', 'twitter_search_tweet');
+}

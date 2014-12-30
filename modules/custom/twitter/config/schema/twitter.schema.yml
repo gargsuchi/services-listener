@@ -1,0 +1,12 @@
+twitter.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    twitter_consumer_key:
+      type: 'NULL'
+    twitter_consumer_secret:
+      type: 'NULL'
+    twitter_import:
+      type: boolean
+    twitter_expire:
+      type: integer

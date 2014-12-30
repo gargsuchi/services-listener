@@ -183,7 +183,7 @@ class Post extends ContentEntityBase implements PostInterface
       ->setDisplayConfigurable('view', TRUE);
 
     $plugin_options = \Drupal::service('plugin.manager.listener_source')->getDefinitionList();
-    kpr($plugin_options);
+    //kpr($plugin_options);
 
 
     $fields['plugin_id'] = BaseFieldDefinition::create('list_string')

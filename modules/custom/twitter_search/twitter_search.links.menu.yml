@@ -1,0 +1,4 @@
+twitter_search.list_page:
+  title: Twitter search
+  route_name: twitter_search.list_page
+  parent: twitter.admin

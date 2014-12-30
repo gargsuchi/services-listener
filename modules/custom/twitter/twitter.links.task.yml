@@ -1,0 +1,12 @@
+entity.user.twitter_user_settings:
+  route_name: entity.user.twitter_user_settings
+  title: Twitter
+  base_route: entity.user.twitter_user_settings
+twitter.admin:
+  route_name: twitter.admin
+  title: Twitter
+  base_route: system.admin_config_services
+twitter.admin_form:
+  route_name: twitter.admin_form
+  title: Settings
+  base_route: twitter.admin

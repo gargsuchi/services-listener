@@ -1,0 +1,21 @@
+twitter_search.list_page:
+  path: /admin/config/services/twitter/twitter_search
+  defaults:
+    _title: 'Twitter search'
+    _controller: '\Drupal\twitter_search\Controller\TwitterSearchController::twitter_search_list_page'
+  requirements:
+    _permission: 'administer twitter search'
+twitter_search.add_form:
+  path: /admin/config/services/twitter/twitter_search/add
+  defaults:
+    _title: 'Add Twitter search text'
+    _form: '\Drupal\twitter_search\Form\TwitterSearchAddForm'
+  requirements:
+    _permission: 'administer twitter search'
+twitter_search.delete_confirm:
+  path: /admin/config/services/twitter/twitter_search/delete/%
+  defaults:
+    _title: 'Delete Twitter search text'
+    _form: '\Drupal\twitter_search\Form\TwitterSearchDeleteConfirm'
+  requirements:
+    _permission: 'administer twitter search'
