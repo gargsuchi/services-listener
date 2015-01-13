@@ -24,6 +24,18 @@ function twitter_account_access() {
 }
 
 /**
+ * Implements hook_entity_info
+ */
+function twitter_entity_info() {
+  return array(
+    'tweet' => array(
+      'label' => t('Tweet'),
+      'module' => 'twitter',
+    )
+    );
+}
+
+/**
  * Implements hook_theme().
  */
 function twitter_theme() {
