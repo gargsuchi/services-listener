@@ -33,8 +33,12 @@ function twitter_search_cron() {
   $oauth = new Oauth1([
     'consumer_key'  => \Drupal::config('twitter.settings')->get('twitter_consumer_key'),
     'consumer_secret' => \Drupal::config('twitter.settings')->get('twitter_consumer_secret'),
-    'token'       => '14174483-mSD6lcPj8u7HVi0mf5FRKogZEL7qhyx043GLZbeuk',
+    'token'       => \Drupal::config('twitter.settings')->get('oauth_token'),
+    'token_secret'  => \Drupal::config('twitter.settings')->get('oauth_token_secret'),
+    /*
+     * 'token'       => '14174483-mSD6lcPj8u7HVi0mf5FRKogZEL7qhyx043GLZbeuk',
     'token_secret'  => 'JK5rpO3uD1yqPY0h7wUOPAtgRWeXg3aWzsyCFB01WWWbG',
+     */
   ]);
 
   $client->getEmitter()->attach($oauth);
