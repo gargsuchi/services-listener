@@ -6,7 +6,6 @@
 namespace Drupal\twitter\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\user\UserInterface;
 use Drupal\Core\Access\AccessResult;
 
@@ -20,7 +19,7 @@ class TwitterController extends ControllerBase {
    *
    * @var \Drupal\user\UserInterface
    */
-  protected $user;
+ // protected $user;
 
   /**
    * Provide a single block from the administration menu as a page.
@@ -36,7 +35,7 @@ class TwitterController extends ControllerBase {
     return $output;
   }
 
-  public function twitter_user_settings(UserInterface $user = NULL) {
+  public function twitter_user_settings(UserInterface $user) {
 
     if (!$user) {
       $user = \Drupal::currentUser();
