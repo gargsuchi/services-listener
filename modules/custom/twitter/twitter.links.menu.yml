@@ -5,11 +5,11 @@ twitter.admin:
   route_name: twitter.admin
   weight: 0
   parent: system.admin_config_services
-entity.user.twitter_user_settings:
-  route_name: entity.user.twitter_user_settings
-  title: Twitter
-  description: 'Twitter accounts and settings.'
-  parent: entity.user.edit_form
+#entity.user.twitter_user_settings:
+#  route_name: entity.user.twitter_user_settings
+#  title: Twitter
+#  description: 'Twitter accounts and settings.'
+#  parent: entity.user.edit_form
 twitter.admin_form:
   title: Twitter Settings
   route_name: twitter.admin_form

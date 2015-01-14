@@ -7,17 +7,17 @@ twitter.oauth_callback:
     _access: 'true'
 #TBD - put in {user}
 #entity.user.twitter_user_settings:
-entity.user.twitter_user_settings:
-  path: '/user/{user}/twitter'
-  defaults:
-    _title: 'Twitter accounts'
-    _controller: '\Drupal\twitter\Controller\TwitterController::twitter_user_settings'
-  requirements:
-    _custom_access: '\Drupal\twitter\Controller\TwitterController::twitter_account_access'
-  options:
-      parameters:
-        user:
-          type: entity:user
+#entity.user.twitter_user_settings:
+#  path: '/user/{user}/twitter'
+#  defaults:
+#    _title: 'Twitter accounts'
+#    _controller: '\Drupal\twitter\Controller\TwitterController::twitter_user_settings'
+#  requirements:
+#    _custom_access: '\Drupal\twitter\Controller\TwitterController::twitter_account_access'
+#  options:
+#      parameters:
+#        user:
+#          type: entity:user
 twitter.admin:
   path: 'admin/config/services/twitter'
   defaults:
