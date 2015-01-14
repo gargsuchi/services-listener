@@ -8,4 +8,6 @@ twitter_search: http://search.twitter.com
 twitter_consumer_key: "SU4KncERLB90oykxqoOcfCVQL"
 twitter_consumer_secret: "3Fq1QlhvauRCieEH8N03MqxygQ1qkbuqLqXIRGv0kRO5I7Zk9E"
 twitter_tinyurl: http://tinyurl.com
+oauth_token: "14174483-mSD6lcPj8u7HVi0mf5FRKogZEL7qhyx043GLZbeuk"
+oauth_token_secret: "JK5rpO3uD1yqPY0h7wUOPAtgRWeXg3aWzsyCFB01WWWbG"
 
