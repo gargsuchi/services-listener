@@ -90,13 +90,23 @@ class TwitterAdminForm extends ConfigFormBase {
 
     $form['oauth']['twitter_consumer_key'] = [
       '#type' => 'textfield',
-      '#title' => t('OAuth Consumer key'),
+      '#title' => t('Twitter Consumer key'),
       '#default_value' => \Drupal::config('twitter.settings')->get('twitter_consumer_key'),
     ];
     $form['oauth']['twitter_consumer_secret'] = [
       '#type' => 'textfield',
-      '#title' => t('OAuth Consumer secret'),
+      '#title' => t('Twitter Consumer secret'),
       '#default_value' => \Drupal::config('twitter.settings')->get('twitter_consumer_secret'),
+    ];
+    $form['oauth']['oauth_token'] = [
+      '#type' => 'textfield',
+      '#title' => t('Oauth Token'),
+      '#default_value' => \Drupal::config('twitter.settings')->get('oauth_token'),
+    ];
+    $form['oauth']['oauth_token_secret'] = [
+      '#type' => 'textfield',
+      '#title' => t('Oauth Token secret'),
+      '#default_value' => \Drupal::config('twitter.settings')->get('oauth_token_secret'),
     ];
 
     // Twitter external APIs settings.
