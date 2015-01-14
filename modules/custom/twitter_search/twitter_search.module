@@ -53,17 +53,11 @@ function twitter_search_cron() {
     while ($search = $results->fetchAssoc()) {
 
       $search_term = $search['search'];
-      drupal_set_message("Searching for" . $search_term);
 
       $statuses = $client->get('1.1/search/tweets.json?q=' . $search_term)->json();
 
       if (!empty($statuses)) {
-        drupal_set_message("Got results for" . $search_term);
         $statuses = $statuses['statuses'];
-        //echo "<pre>"; print_r($statuses); die;
-        // Store last time search was fetched so that we grab new searches
-        // first. Also store the last twitter id for each search so that we only
-        // pull updated tweets.
         db_update('twitter_search')
           ->fields(array(
             'last_twitter_id' => $statuses[0]['id'],
