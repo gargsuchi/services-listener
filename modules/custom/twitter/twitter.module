@@ -339,3 +339,32 @@ function _twitter_user_profile($screen_name) {
   $ret_val = \Drupal::l('@' . $screen_name, TWITTER_HOST . '/' . $screen_name);
   return $ret_val;
 }
+
+///**
+// * @file
+// * Provides the Guzzle HTTP plugin.
+// */
+//function twitter_libraries_info() {
+//  $libraries['guzzlehttp'] = array(
+//    // Only used in administrative UI of Libraries API.
+//    'name' => 'HTTP plugin for Guzzle',
+//    'vendor url' => 'https://github.com/guzzle/oauth-subscriber',
+//    'download url' => 'https://github.com/guzzle/oauth-subscriber/archive/master.zip',
+//    'version' => '*',
+//    // Optional: If, after extraction, the actual library files are contained in
+//    // 'sites/all/libraries/example/lib', specify the relative path here.
+//    'path' => 'oauth-subscriber',
+//    // Default list of files of the library to load. Important: Only specify
+//    // third-party files belonging to the library here, not integration files of
+//    // your module.
+//    'files' => array(
+//      // For PHP libraries, specify include files here, still relative to the
+//      // library path.
+//      'php' => array(
+//        'Oauth1.php',
+//      ),
+//    ),
+//  );
+//
+//  return $libraries;
+//}

@@ -3,6 +3,9 @@ description: 'Adds search functionality to the Twitter module.'
 core: 8.x
 dependencies:
   - twitter
+  - libraries
+libraries:
+  - guzzlehttp/oauth-subscriber
 version: 7.x-1.x-dev
 project: twitter_search
 datestamp: '1382148421'

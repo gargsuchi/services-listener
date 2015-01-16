@@ -5,6 +5,7 @@
  * Adds search API features to the Twitter module.
  */
 
+libraries_load('guzzlehttp');
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Guzzle\Plugin\OAuth\OAuthPlugin;
@@ -19,7 +20,34 @@ function twitter_search_views_api() {
 }
 
 
+/**
+ * @file
+ * Provides the Guzzle HTTP plugin.
+ */
+function twitter_search_libraries_info() {
+  $libraries['guzzlehttp'] = array(
+    // Only used in administrative UI of Libraries API.
+    'name' => 'HTTP plugin for Guzzle',
+    'vendor url' => 'https://github.com/guzzle/oauth-subscriber',
+    'download url' => 'https://github.com/guzzle/oauth-subscriber/archive/master.zip',
+    'version' => '*',
+    // Optional: If, after extraction, the actual library files are contained in
+    // 'sites/all/libraries/example/lib', specify the relative path here.
+    'path' => 'oauth-subscriber',
+    // Default list of files of the library to load. Important: Only specify
+    // third-party files belonging to the library here, not integration files of
+    // your module.
+    'files' => array(
+      // For PHP libraries, specify include files here, still relative to the
+      // library path.
+      'php' => array(
+        'src/Oauth1.php',
+      ),
+    ),
+  );
 
+  return $libraries;
+}
 
 /**
  * Implements hook_cron().
@@ -28,6 +56,7 @@ function twitter_search_views_api() {
  */
 function twitter_search_cron() {
   libraries_load('guzzlehttp');
+  libraries_load_files('guzzlehttp');
 
   $client = new Client(['base_url' => 'https://api.twitter.com/', 'defaults' => ['auth' => 'oauth']]);
   $oauth = new Oauth1([
@@ -128,3 +157,4 @@ function twitter_search_already_exists($search) {
   $result = db_query("SELECT search FROM {twitter_search} WHERE search = :search", array(':search' => $search))->fetchField();
   return $result ? TRUE : FALSE;
 }
+

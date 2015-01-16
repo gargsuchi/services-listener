@@ -32,3 +32,51 @@ twitter.admin_form:
     _form: '\Drupal\twitter\Form\TwitterAdminForm'
   requirements:
     _permission: 'administer site configuration'
+# Tweet routing definition
+entity.tweet.canonical:
+  path: '/admin/tweet/{tweet}'
+  defaults:
+    _entity_view: 'tweet'
+    _title: 'Tweet Content'
+  requirements:
+    _entity_access: 'tweet.view'
+
+entity.tweet.list:
+  path: '/admin/tweet'
+  defaults:
+    _entity_list: 'tweet'
+    _title: 'Tweet List'
+  requirements:
+    _permission: 'view Tweet entity'
+
+entity.tweet.add_form:
+  path: '/admin/tweet/add'
+  defaults:
+    _entity_form: tweet.add
+    _title: 'Add Tweet'
+  requirements:
+    _entity_create_access: 'tweet'
+
+entity.tweet.edit_form:
+  path: '/admin/tweet/{tweet}/edit'
+  defaults:
+    _entity_form: tweet.edit
+    _title: 'Edit Tweet'
+  requirements:
+    _entity_access: 'tweet.edit'
+
+entity.tweet.delete_form:
+  path: '/admin/tweet/{tweet}/delete'
+  defaults:
+    _entity_form: tweet.delete
+    _title: 'Delete Tweet'
+  requirements:
+    _entity_access: 'tweet.delete'
+
+tweet.settings:
+  path: 'admin/structure/tweet'
+  defaults:
+   _form: '\Drupal\listener\Entity\Form\TweetSettingsForm'
+   _title: 'Tweet Settings'
+  requirements:
+    _permission: 'administer Tweet entity'

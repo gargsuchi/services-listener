@@ -40,6 +40,15 @@ function twitter_schema() {
   $schema['twitter'] = array(
     'description' => "Stores individual Twitter posts.",
     'fields' => array(
+      'id' => array(
+              'description' => "Auto id.",
+              'type' => 'numeric',
+              'unsigned' => TRUE,
+              'precision' => 20,
+              'scale' => 0,
+              'not null' => TRUE,
+              'default' => 0,
+      ),
       'twitter_id' => array(
         'description' => "Unique identifier for each {twitter} post.",
         'type' => 'numeric',

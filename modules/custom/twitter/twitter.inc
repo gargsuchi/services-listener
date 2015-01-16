@@ -25,6 +25,7 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
 function twitter_connect($account = NULL) {
 
   libraries_load('guzzlehttp');
+  libraries_load_files('guzzlehttp');
   //$client = \Drupal::httpClient();
   //$client->BaseUrl = 'https://api.twitter.com/1.1';
 

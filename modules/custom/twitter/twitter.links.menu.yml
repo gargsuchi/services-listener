@@ -14,3 +14,13 @@ twitter.admin_form:
   title: Twitter Settings
   route_name: twitter.admin_form
   parent: twitter.admin
+entity.tweet.list:
+  title: 'Tweet: Listing'
+  route_name: entity.tweet.list
+  description: 'List Tweet'
+
+tweet.admin.structure.settings:
+  title: Tweet Settings
+  description: 'Configure Tweet entity'
+  route_name:  tweet.settings
+  parent: system.admin_structure
